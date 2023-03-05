@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
-  
+
   const taskList = tasks.map((task) => (
     <Todo
       id={task.id}
@@ -23,6 +23,7 @@ function App(props) {
     const newTask = {  id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
     console.log(newTask)
+    
   }
 
   function deleteTask(id) {
@@ -34,7 +35,6 @@ function App(props) {
       const editedTaskList = tasks.map((task) => {
       // if this task has the same ID as the edited task
         if (id === task.id) {
-          //
           return {...task, name: newName}
         }
         return task;
@@ -47,7 +47,7 @@ function App(props) {
       <h1>TodoMatic</h1>
       <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
-        <FilterButton />
+        {/* <FilterButton /> */}
         {/* <FilterButton />
         <FilterButton /> */}
       </div>
